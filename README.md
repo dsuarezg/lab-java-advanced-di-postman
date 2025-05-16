@@ -94,10 +94,14 @@ Update your repository’s `README.md` to include:
 
 - A brief explanation of your design choices for the **EarlyBirdDiscountService**.
 - Answers to:
-  - Why did you choose constructor-based DI for this lab?
+  - Why did you choose constructor-based DI for this lab? 
+  - Para tener un mayor control del flujo y ciclo de vida de la app, ya que si se producen cambios o se quiere añadir lógica adicional es más sencillo de esta forma.
   - What advantages do Postman pre-request and post-response scripts offer for automated testing?
+  - Nos sirve para definir las expectativas de la respuesta a la request y poder validar el resultado conforme a las condiciones que, previamente, habíamos definido.
   - How does your application behave when the early bird feature is disabled?
+  - Reporta un código 503 de Service Unavailable.
   - What are some challenges you faced when integrating advanced DI with API testing?
+  - Es más complicado, pues dependemos del valor de una variable para que la request funcione. Si no está habilitada, no podemos hacer la request y, por tanto, no podemos testear el endpoint.
 
 <br />
 

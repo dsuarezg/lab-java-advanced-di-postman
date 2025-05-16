@@ -27,16 +27,39 @@ class EarlyBirdDiscountServiceTest {
     }
 
     @Test
-    @DisplayName("Test EarlyBirdDiscountService - More than 30 days")
+    @DisplayName("Test EarlyBirdDiscountService more than 30 days")
     void testEarlyBirdDiscountServiceMoreThan30Days() {
         String discount = earlyBirdDiscountService.applyDiscount(event, booking);
         assertEquals("15% Discount applied!", discount);
     }
 
     @Test
-    @DisplayName("Test EarlyBirdDiscountService - Less than 30 days")
+    @DisplayName("Test EarlyBirdDiscountService less than 30 days")
     void testEarlyBirdDiscountServiceLessThan30Days() {
         String discount = earlyBirdDiscountService.applyDiscount(event, passedDate);
         assertEquals("No discount available.", discount);
+    }
+
+
+    // Edge Cases
+    @Test
+    @DisplayName("Test EarlyBirdDiscountService - Same day")
+    void testEarlyBirdDiscountServiceSameDay() {
+        String discount = earlyBirdDiscountService.applyDiscount(event, event);
+        assertEquals("No discount available.", discount);
+    }
+
+    @Test
+    @DisplayName("Test EarlyBirdDiscountService in 30 days")
+    void testEarlyBirdDiscountServiceSameDayPlus30Days() {
+        String discount = earlyBirdDiscountService.applyDiscount(event, event.plusDays(30));
+        assertEquals("No discount available.", discount);
+    }
+
+    @Test
+    @DisplayName("Test EarlyBirdDiscountService in 31 days")
+    void testEarlyBirdDiscountServiceSameDayPlus31Days() {
+        String discount = earlyBirdDiscountService.applyDiscount(event.plusDays(31), event);
+        assertEquals("15% Discount applied!", discount);
     }
 }
