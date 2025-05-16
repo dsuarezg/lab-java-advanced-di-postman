@@ -68,9 +68,10 @@ Once you finish the assignment, submit a URL link to your repository or your pul
     - **URL:** `{{baseUrl}}/api/discount`
     - **Query Parameters:** Include parameters for `eventDate` and `bookingDate` (e.g., `eventDate=2025-06-30`, `bookingDate=2025-05-15`).
     - **Goal:** Verify that when `feature.earlybird.enabled` is `true`, the endpoint returns the correct discount message or value.
+    ![img.png](src/main/resources/static/img.png)
   - **Negative Test Request:**
     - Change the query parameters (e.g., booking closer to the event date) to test the edge cases, verifying that no discount is applied when appropriate.
-
+    ![img_1.png](src/main/resources/static/img_1.png)
 - **Add Scripts:**
 
   - **Pre-request Script:** (Optional) Log a message to indicate that the request is starting.
@@ -78,11 +79,13 @@ Once you finish the assignment, submit a URL link to your repository or your pul
     - The response status code.
     - That the response contains a discount value or message consistent with your business rules.
     - Optionally, log key output for debugging purposes.
+  
+    - ![img_2.png](src/main/resources/static/img_2.png)
 
 - **Run and Validate:**
   - Use the Postman Collection Runner to execute your requests.
   - Test both the positive (discount applied) and negative (no discount) scenarios by toggling the property `feature.earlybird.enabled` and by varying the query parameters.
-
+    ![img_3.png](src/main/resources/static/img_3.png)
 <br />
 
 ### 3. Documentation in README.md
